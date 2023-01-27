@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Detalles de usuario</title>
+</head>
+<body>
+<!--No es necesario usar los get (lo hace de forma interna al llamar al atributo)-->
+<h1>Nombre: </h1><span th:text="${usuario.nombre}"></span>
+<h1>Apellido 1: </h1><span th:text="${usuario.apellido1}"></span>
+<h1>Apellido 2: </h1><span th:text="${usuario.apellido2}"></span>
+<h1>Edad: </h1><span th:text="${usuario.edad}"></span>
+<!--Directiva if en thymeleaf-->
+<h1>Email: </h1><span th:if="${usuario.email}" th:text="${usuario.email}"></span>
+<span th:if="${usuario.email == null}" th:text="'Email no introducido'"></span>
+</body>
+</html>

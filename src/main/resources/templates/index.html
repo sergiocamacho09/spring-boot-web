@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Index page</title>
 </head>
 <body>
-    <h1>Hello to my Spring Boot application</h1>
+    <!--Añadiendo datos a través del modal-->
+    <h1 style="text-align:center;" th:text="${titulo}"></h1>
 </body>
 </html>
