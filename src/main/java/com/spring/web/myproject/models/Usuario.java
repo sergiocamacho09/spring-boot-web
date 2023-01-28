@@ -8,8 +8,17 @@ public class Usuario {
     private String email;
     private Integer edad;
 
+    public Usuario(String nombre, String apellido1, String apellido2, String email, Integer edad) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.email = email;
+        this.edad = edad;
+    }
 
-//    GETTER Y SETTERS
+    public Usuario() {}
+
+    //    GETTER Y SETTERS
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

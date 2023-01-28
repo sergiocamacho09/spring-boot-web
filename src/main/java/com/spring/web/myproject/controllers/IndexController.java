@@ -5,11 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,7 @@ public class IndexController {
         return "index";
     }
 
+//    Con RequestMapping indicamos la extensión de la URL junto con el verbo HTTP que empleará
     @RequestMapping(value = "/map", method = RequestMethod.GET)
     public String indexMap(Map<String, Object> map){
         map.put("titulo", "Datos añadidos a través de Map");
@@ -56,13 +58,27 @@ public class IndexController {
         return "perfil";
     }
 
+//    Indicamos el nombre del atributo que se le pasará a través del modal
+//    Los datos quedarían disponibles para que los use cualquier función del controlador
+//    Se emplea ModelAttribute si esos datos van a ser usados en más de una lista
+    @ModelAttribute("usuarios")
+    public List<Usuario> listaUsuarios(){
+        List<Usuario> usuarios = Arrays.asList(new Usuario("Pedro", "Carmena", "Martin", null, 17),
+                new Usuario("Sergio", "Camacho", "Toledano", "email@email.com", 23),
+                new Usuario("Celia", "Camacho", "Toledano", null, 28));
+        return usuarios;
+    }
     @RequestMapping(value = "/lista" , method = RequestMethod.GET)
     public String listar(Model model){
 
-        List<Usuario> usuarios = new ArrayList<>();
+//        List<Usuario> usuarios = new ArrayList<>();
+//        usuarios.add(new Usuario("Pedro", "Carmena", "Martin", null, 17));
+//        usuarios.add(new Usuario("Sergio", "Camacho", "Toledano", "email@email.com", 23));
+//        usuarios.add(new Usuario("Celia", "Camacho", "Toledano", null, 28));
+
         model.addAttribute("titulo", "Lista de usuarios");
-        model.addAttribute("usuarios", usuarios);
 
         return "lista";
     }
+    
 }

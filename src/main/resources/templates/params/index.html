@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Index params</title>
+</head>
+<body>
+<ul>
+<!--  El @ se utiliza para especificar rutas propias del proyecto en Thymeleaf -->
+<!--  Sirve para llamara a recursos estáticos de nuestro proyecto -->
+<!--  Los () se utilizán para añadir parámetros a nuestras rutas mapeadas
+      en el controlador -->
+  <li>
+    <a th:href="@{/params/string(texto = 'Hola Mundo con parámetros')}">/params/string?texto=Hola Mundo con parámetros</a>
+  </li>
+  <li>
+    <a th:href="@{/params/string(texto = 'Curso con Spring Boot')}">/params/string?texto=Curso</a>
+  </li>
+</ul>
+</body>
+</html>
