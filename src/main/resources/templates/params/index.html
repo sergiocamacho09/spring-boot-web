@@ -16,6 +16,12 @@
   <li>
     <a th:href="@{/params/string(texto = 'Curso con Spring Boot')}">/params/string?texto=Curso</a>
   </li>
+  <li>
+    <a th:href="@{/params/mix-params(saludo = 'Hola Mundo!', numero = 8)}">/params/mix-params?saludo=Hola Mundo &numero=8</a>
+  </li>
+  <li>
+    <a th:href="@{/params/mix-params-http(saludo = 'Hola Mundo!', numero = 9)}">/params/mix-params-http?saludo=Hola Mundo &numero=9</a>
+  </li>
 </ul>
 </body>
 </html>

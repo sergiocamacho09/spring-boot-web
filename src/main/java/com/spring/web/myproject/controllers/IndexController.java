@@ -20,7 +20,7 @@ import java.util.Map;
 public class IndexController {
 
 //    Añadir datos a la vista de diferentes formas
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = {"/index", "/"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("titulo", "Este título viene desde el backend");
         return "index";

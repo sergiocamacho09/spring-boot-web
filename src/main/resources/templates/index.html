@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Index page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <!--Añadiendo datos a través del modal-->
-    <h1 style="text-align:center;" th:text="${titulo}"></h1>
+<!--Añadiendo datos a través del modal-->
+<h1 class="color-rojo" th:text="${titulo}"></h1>
+<h2 class="color-azul">Decorando con estilos css recursos estáticos</h2>
+<img th:src="@{/images/spring_boot_icon.png}">
 </body>
 </html>
