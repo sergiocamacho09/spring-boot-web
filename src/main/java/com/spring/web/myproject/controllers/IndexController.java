@@ -1,6 +1,7 @@
 package com.spring.web.myproject.controllers;
 
 import com.spring.web.myproject.models.Usuario;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,10 +20,15 @@ import java.util.Map;
 @RequestMapping(value = "/home")
 public class IndexController {
 
+    @Value("${texto.indexController.index.titulo}")
+    private String textoIndex;
+
+    @Value("${texto.indexController.listar.titulo}")
+    private String textoListar;
 //    Añadir datos a la vista de diferentes formas
     @RequestMapping(value = {"/index", "/"}, method = RequestMethod.GET)
     public String index(Model model){
-        model.addAttribute("titulo", "Este título viene desde el backend");
+        model.addAttribute("titulo", textoIndex);
         return "index";
     }
 
@@ -76,7 +82,7 @@ public class IndexController {
 //        usuarios.add(new Usuario("Sergio", "Camacho", "Toledano", "email@email.com", 23));
 //        usuarios.add(new Usuario("Celia", "Camacho", "Toledano", null, 28));
 
-        model.addAttribute("titulo", "Lista de usuarios");
+        model.addAttribute("titulo", textoListar);
 
         return "lista";
     }
